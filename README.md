@@ -20,7 +20,7 @@ GROUP BY sex
 
 SELECT date_part('year', age(birth_date)) :: integer as age,
       
-       count(user_id) as users_count
+count(user_id) as users_count
 
 FROM   users
 
@@ -34,9 +34,9 @@ ORDER BY age
 
 SELECT case when to_char(creation_time, 'Dy') in ('Sat', 'Sun') then 'weekend'
           
-            else 'weekdays' end as week_part,
+else 'weekdays' end as week_part,
        
-       round(avg(array_length(product_ids, 1)), 2) as avg_order_size
+round(avg(array_length(product_ids, 1)), 2) as avg_order_size
 
 FROM   orders
 
