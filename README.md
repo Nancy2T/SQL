@@ -6,7 +6,7 @@
 
 SELECT sex,
        
-       count(distinct courier_id) as couriers_count
+count(distinct courier_id) as couriers_count
 
 FROM   couriers
 
