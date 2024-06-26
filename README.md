@@ -54,10 +54,11 @@ ORDER BY avg_order_size
 Составить запрос на получение логинов курьеров и их заказов со статусов "в доставке".
 
 **Решение**:
+
 SELECT
 
-  "Couriers".login,
-  
+"Couriers".login,
+
   COUNT(*)
   
 FROM "Couriers" 
@@ -66,7 +67,7 @@ LEFT JOIN "Orders" ON "Orders".courierId = "Couriers".id
 
 WHERE
 
-  "Orders".inDelivery
+"Orders".inDelivery
   
 GROUP BY "Couriers".login
 
@@ -75,18 +76,19 @@ GROUP BY "Couriers".login
 Составить запрос на вывод всех треккров заказов и их статусов
 
 **Решение**:
+
 SELECT
 
-  "Orders".track,
+"Orders".track,
   
-  CASE WHEN "Orders".finished THEN 2
+CASE WHEN "Orders".finished THEN 2
   
-       WHEN "Orders".canсelled THEN -1
+WHEN "Orders".canсelled THEN -1
        
-       WHEN "Orders".inDelivery THEN 1
+WHEN "Orders".inDelivery THEN 1
        
-       ELSE 0
+ELSE 0
        
-  END
+END
   
 FROM "Orders"
